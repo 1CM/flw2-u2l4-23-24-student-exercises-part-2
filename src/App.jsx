@@ -13,25 +13,22 @@ let counter = 0;
 
 export default function App() {
   // 2. Replace the photo variable with a state variable.
-  let photo = photos[counter];
+  let [photoIndex, setPhotoIndex] = useState(0);
 
-  function getNextPhoto() {
-    counter += 1;
-    if (counter >= photos.length) {
-      counter = 0;
-    }
     // 3. Update state using the setter function. 
     //  - It should update the pic when the button is clicked.
-  }
+// function getNextPhoto
+  // setPhoto(photoIndex(setPhotoIndex))
 
   // 4. In the button tag, set the value of`onClick` to the `getNextPhoto` function.
   return (
     <div>
       <h1>Pet Photo Album</h1>
       <div className="app">
-        <img src={photo} alt="" />
+        <img src={photos[photoIndex]} alt="" />
         <br />
-        <button onClick>Click for next photo!</button>
+        <button onClick>{() => setPhotoIndex(1)}>
+          woof woof</button>
       </div>
     </div>
   );
